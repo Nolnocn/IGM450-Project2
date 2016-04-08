@@ -12,7 +12,7 @@ public class BoundsScaler : MonoBehaviour
 	{
 		halfBoundsWidth = boundsWidth * 0.5f;
 		boundsColliders = GetComponents<BoxCollider2D>();
-		EventManager.AddEventListener( "OnCameraResize", Resize );
+		EventManager.AddEventListener( "CameraResize", Resize );
 
 		Resize();
 	}
