@@ -18,9 +18,9 @@ public class BubbleScript : MonoBehaviour
 	void OnCollisionEnter2D( Collision2D collision )
 	{
 		GameObject go = collision.gameObject;
-			if( go.tag == "Bubble" )
+		if( go.tag == "Bubble" )
 		{
-			if( transform.localScale.x > go.transform.localScale.x * 1.1f )
+			if( transform.localScale.x > go.transform.localScale.x )
 			{
 				EatBubble( go.GetComponent<BubbleScript>() );
 			}
@@ -41,9 +41,9 @@ public class BubbleScript : MonoBehaviour
 	protected virtual void EatBubble( BubbleScript bubble )
 	{
 		float newArea = area + bubble.Area;
-		float newRadius = Mathf.Sqrt( newArea / Mathf.PI );
+		float newDiameter = Mathf.Sqrt( newArea / Mathf.PI ) * 2.0f;
 
-		transform.localScale = new Vector3( newRadius * 2.0f, newRadius * 2.0f, 1.0f );
+		transform.localScale = new Vector3( newDiameter, newDiameter, 1.0f );
 		area = newArea;
 		bubble.KillBubble();
 	}

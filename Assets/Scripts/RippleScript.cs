@@ -6,8 +6,10 @@ public class RippleScript : MonoBehaviour
 	public float duration = 1.0f;
 	public float maxSize = 5.0f;
 
+	private float pushForce;
 	private float currTime;
 	private SpriteRenderer spriteRenderer;
+	private Collider2D myCollider;
 
 	void Start()
 	{
@@ -15,6 +17,7 @@ public class RippleScript : MonoBehaviour
 		transform.localScale = new Vector3( 0.0f, 0.0f, 1.0f );
 
 		spriteRenderer = GetComponent<SpriteRenderer>();
+		myCollider = GetComponent<Collider2D>();
 	}
 
 	void Update()
@@ -41,8 +44,18 @@ public class RippleScript : MonoBehaviour
 		{
 			Rigidbody2D rb = col.GetComponent<Rigidbody2D>();
 			Vector3 dir = col.transform.position - transform.position;
-			rb.velocity = Vector2.zero;
-			rb.AddForce( dir.normalized * maxSize / duration * 0.5f, ForceMode2D.Impulse );
+			//rb.velocity = Vector2.zero;
+			rb.AddForce( dir.normalized * pushForce, ForceMode2D.Impulse );
+
+			// Make sure the bubble can only be hit by the ripple once
+			// To avoid ridiculous speed boosts
+			Physics2D.IgnoreCollision( myCollider, col );
 		}
+	}
+
+	public void SetForce( float force )
+	{
+		maxSize = force * 2.0f;
+		pushForce = ( force ) / duration;
 	}
 }
