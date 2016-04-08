@@ -15,7 +15,7 @@ public class CameraScaler : MonoBehaviour
 	
 	private void OnPlayerGrow()
 	{
-		if( playerBubble.GetDiameter() > mainCamera.orthographicSize )
+		if( playerBubble.GetDiameter() > mainCamera.orthographicSize * 0.5f )
 		{
 			mainCamera.orthographicSize *= 2.0f;
 			EventManager.TriggerEvent( "CameraResize" );

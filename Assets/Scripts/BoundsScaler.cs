@@ -8,6 +8,8 @@ public class BoundsScaler : MonoBehaviour
 	private float halfBoundsWidth;
 	private BoxCollider2D[] boundsColliders;
 
+	private Rect currentBounds;
+
 	void Start()
 	{
 		halfBoundsWidth = boundsWidth * 0.5f;
@@ -16,15 +18,23 @@ public class BoundsScaler : MonoBehaviour
 
 		Resize();
 	}
+
+	public Rect GetBounds()
+	{
+		return currentBounds;
+	}
 	
 	private void Resize()
 	{
-		// TODO: Switch to world size w/ panning camera
 		float aspect = Camera.main.aspect;
 		float height = Camera.main.orthographicSize * 2.0f;
 		float width = height * aspect;
 
-		Vector2 offset = new Vector2( 0.0f, height * 0.5f - halfBoundsWidth );
+		Vector2 boundsPos = new Vector2( -width * 0.5f + halfBoundsWidth, -height * 0.5f - halfBoundsWidth );
+		Vector2 boundsSize = new Vector2( width, height );
+		Rect bounds = new Rect( boundsPos, boundsSize );
+
+		Vector2 offset = new Vector2( 0.0f, bounds.yMax );
 		Vector2 size = new Vector2( width, boundsWidth );
 
 		// Top
@@ -36,10 +46,9 @@ public class BoundsScaler : MonoBehaviour
 		boundsColliders[ 1 ].offset = offset;
 		boundsColliders[ 1 ].size = size;
 
-		// Swap constant values of offset and size
-		// To set left & right bounds
+		// Swap values of offset and size to set left & right bounds
 		offset.y = offset.x;
-		offset.x = width * 0.5f - halfBoundsWidth;
+		offset.x = bounds.xMin;
 		size.x = size.y;
 		size.y = height;
 
@@ -51,5 +60,7 @@ public class BoundsScaler : MonoBehaviour
 		offset.x *= -1.0f;
 		boundsColliders[ 3 ].offset = offset;
 		boundsColliders[ 3 ].size = size;
+
+		currentBounds = bounds;
 	}
 }
