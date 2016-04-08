@@ -30,12 +30,12 @@ public class GameUIController : MonoBehaviour {
 
 	public void UpdateScore()
 	{
-		scoreText.text = playerBubble.GetAreaAsScore ().ToString();
+		scoreText.text = playerBubble.GetScore ().ToString();
 	}
 
 	public void TriggerDeathUI() 
 	{
 		lossPanel.SetActive (true);
-		lossScoreText.text = playerBubble.GetAreaAsScore ().ToString();
+		lossScoreText.text = playerBubble.GetScore ().ToString();
 	}
 }

@@ -3,18 +3,9 @@ using System.Collections;
 
 public class PlayerBubbleScript : BubbleScript
 {
-	private float startingArea;
-
-	void Start()
+	public int GetScore()
 	{
-		CalculateArea();
-		startingArea = area;
-	}
-
-	public int GetAreaAsScore()
-	{
-		float score = area - startingArea;
-		return Mathf.FloorToInt( score * 100.0f );
+		return Mathf.FloorToInt( ( GetDiameter() - 1.0f ) * 10.0f );
 	}
 
 	public override void KillBubble()
