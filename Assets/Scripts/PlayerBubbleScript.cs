@@ -26,7 +26,6 @@ public class PlayerBubbleScript : BubbleScript
 	protected override void EatBubble( BubbleScript bubble )
 	{
 		base.EatBubble( bubble );
-		GameUIController.Instance.UpdateScore (Mathf.CeilToInt(bubble.Area));
 		EventManager.TriggerEvent( "PlayerGrow" );
 	}
 }
