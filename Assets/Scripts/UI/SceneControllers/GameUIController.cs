@@ -13,17 +13,18 @@ public class GameUIController : MonoBehaviour {
 
 	[SerializeField]
 	private Text scoreText;
-	private int score;
+
+	[SerializeField]
+	private PlayerBubbleScript playerBubble;
 
 	void Awake()
 	{
 		instance = this;
-		score = 0;
+		EventManager.AddEventListener ("PlayerGrow", UpdateScore);
 	}
 
-	public void UpdateScore (int amount)
+	public void UpdateScore ()
 	{
-		score += amount;
-		scoreText.text = score.ToString ();
+		scoreText.text = playerBubble.GetAreaAsScore ().ToString();
 	}
 }

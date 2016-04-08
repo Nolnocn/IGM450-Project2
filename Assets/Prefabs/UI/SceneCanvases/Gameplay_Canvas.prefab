@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 11498728}
+  playerBubble: {fileID: 0}
 --- !u!114 &11439520
 MonoBehaviour:
   m_ObjectHideFlags: 1
