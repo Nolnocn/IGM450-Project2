@@ -534,6 +534,12 @@ MonoBehaviour:
   m_EventMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1256067732 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11498728, guid: fc7032e507130614d9119f3dfb34658a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1763611699}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1416575252
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +713,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11409218, guid: fc7032e507130614d9119f3dfb34658a, type: 2}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1256067732}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc7032e507130614d9119f3dfb34658a, type: 2}
   m_IsPrefabParent: 0
