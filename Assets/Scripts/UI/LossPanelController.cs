@@ -24,6 +24,11 @@ public class LossPanelController : MonoBehaviour {
 		gameObject.SetActive (false);
 	}
 
+	public void OnQuitPress()
+	{
+		SceneManager.LoadScene ("Menu");
+	}
+
 	public void Replay()
 	{
 		StartCoroutine ("ReplayCoroutine");
