@@ -2,7 +2,6 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class GameUIController : MonoBehaviour {
 
@@ -12,11 +11,10 @@ public class GameUIController : MonoBehaviour {
 	}
 
 	[SerializeField]
-	private GameObject lossPanel;
+	private LossPanelController lossPanel;
 	[SerializeField]
 	private Text scoreText;
-	[SerializeField]
-	private Text lossScoreText;
+
 
 	[SerializeField]
 	private PlayerBubbleScript playerBubble;
@@ -35,7 +33,7 @@ public class GameUIController : MonoBehaviour {
 
 	public void TriggerDeathUI() 
 	{
-		lossPanel.SetActive (true);
-		lossScoreText.text = playerBubble.GetAreaAsScore ().ToString();
+		lossPanel.gameObject.SetActive (true);
+		lossPanel.UpdateScore (playerBubble.GetAreaAsScore ());
 	}
 }
