@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ade3065a6ae9478ebd56114da100487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bounds: {fileID: 230095105}
   bubblePrefab: {fileID: 107626, guid: 34ca3798f78c74310b6e86d1d5b08fc4, type: 2}
   spawnLayerMask:
     serializedVersion: 2
@@ -376,6 +377,7 @@ GameObject:
   - 124: {fileID: 1212447986}
   - 81: {fileID: 1212447985}
   - 114: {fileID: 1212447990}
+  - 114: {fileID: 1212447991}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -464,6 +466,18 @@ MonoBehaviour:
   m_EventMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1212447991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1212447984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e95ed7db19466405ea5283f637c8c13d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerBubble: {fileID: 1851029244}
 --- !u!1001 &1715369053
 Prefab:
   m_ObjectHideFlags: 0

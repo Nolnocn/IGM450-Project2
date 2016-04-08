@@ -23,6 +23,11 @@ public class PlayerBubbleScript : BubbleScript
 		gameObject.SetActive( false );
 	}
 
+	public float GetDiameter()
+	{
+		return transform.localScale.x;
+	}
+
 	protected override void EatBubble( BubbleScript bubble )
 	{
 		base.EatBubble( bubble );

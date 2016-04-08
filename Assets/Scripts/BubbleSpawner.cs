@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class BubbleSpawner : MonoBehaviour
 {
+	public BoundsScaler bounds;
+
 	public GameObject bubblePrefab;
 	public LayerMask spawnLayerMask;
 
@@ -10,7 +12,12 @@ public class BubbleSpawner : MonoBehaviour
 
 	public float minBubbleSize = 0.5f;
 	public float maxBubbleSize = 1.5f;
-	
+
+	void Start()
+	{
+		EventManager.AddEventListener( "CameraResize", OnCameraResize );
+	}
+
 	void Update()
 	{
 		if( transform.childCount < maxBubbles )
@@ -23,17 +30,13 @@ public class BubbleSpawner : MonoBehaviour
 	{
 		Vector3 pos = Vector3.zero;
 		float scale = Random.Range( minBubbleSize, maxBubbleSize );
+		float radius = scale * 0.5f;
 
-		// Temp until world bounds are set up
-		// TODO: Set up world bounds
-		float aspect = Camera.main.aspect;
-		float height = Camera.main.orthographicSize;
-		float width = height * aspect;
+		Rect worldBounds = bounds.GetBounds();
+		pos.x = Random.Range( worldBounds.xMin + radius, worldBounds.xMax - radius );
+		pos.y = Random.Range( worldBounds.yMin + radius, worldBounds.yMax - radius );
 
-		pos.x = Random.Range( -width + 2 + scale * 0.5f, width - 2 - scale * 0.5f );
-		pos.y = Random.Range( -height + 2 + scale * 0.5f, height - 2 - scale * 0.5f );
-
-		Collider2D hitCol = Physics2D.OverlapCircle( pos, scale, spawnLayerMask );
+		Collider2D hitCol = Physics2D.OverlapCircle( pos, radius, spawnLayerMask );
 
 		if( hitCol == null )
 		{
@@ -41,5 +44,12 @@ public class BubbleSpawner : MonoBehaviour
 			newBubble.transform.localScale = new Vector3( scale, scale, 1.0f );
 			newBubble.transform.parent = transform;
 		}
+	}
+
+	private void OnCameraResize()
+	{
+		minBubbleSize *= Camera.main.orthographicSize * 0.25f;
+		maxBubbleSize = minBubbleSize * 3.0f;
+		maxBubbles *= 2;
 	}
 }
