@@ -10,25 +10,10 @@ public class BubbleSpawner : MonoBehaviour
 
 	public float minBubbleSize = 0.5f;
 	public float maxBubbleSize = 1.5f;
-
-	private List<GameObject> bubbles;
-
-	void Start()
-	{
-		bubbles = new List<GameObject>();
-	}
 	
 	void Update()
 	{
-		for( int i = bubbles.Count - 1; i >= 0; i-- )
-		{
-			if( bubbles[ i ] == null )
-			{
-				bubbles.Remove( bubbles[ i ] );
-			}
-		}
-
-		if( bubbles.Count < maxBubbles )
+		if( transform.childCount < maxBubbles )
 		{
 			SpawnBubble();
 		}
@@ -54,7 +39,7 @@ public class BubbleSpawner : MonoBehaviour
 		{
 			GameObject newBubble = (GameObject)Instantiate( bubblePrefab, pos, Quaternion.identity );
 			newBubble.transform.localScale = new Vector3( scale, scale, 1.0f );
-			bubbles.Add( newBubble );
+			newBubble.transform.parent = transform;
 		}
 	}
 }
