@@ -33,7 +33,7 @@ public class LossPanelController : MonoBehaviour {
 	{
 		CloseLossScreen ();
 
-		yield return new WaitForSeconds (0.6f);
+		yield return new WaitForSeconds (0.45f);
 
 		SceneManager.LoadScene ("Game");
 	}
