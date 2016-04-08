@@ -313,9 +313,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc1fd63257f1472c8332315d2dd3f63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ripplePrefab: {fileID: 161646, guid: ab60263bcea2a47debd3955b3b9ee0db, type: 2}
-  minRippleDistance: 1.5
-  maxRippleInterval: 0.5
+  ripplePrefab: {fileID: 11455580, guid: ab60263bcea2a47debd3955b3b9ee0db, type: 2}
+  maxPressTime: 2
+  startingMinRippleForce: 0.5
+  startingMaxRippleForce: 10
 --- !u!4 &503988370
 Transform:
   m_ObjectHideFlags: 0
