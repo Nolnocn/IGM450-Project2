@@ -18,6 +18,7 @@ public class CameraScaler : MonoBehaviour
 		if( playerBubble.GetDiameter() > mainCamera.orthographicSize )
 		{
 			mainCamera.orthographicSize *= 2.0f;
+			EventManager.TriggerEvent( "CameraResize" );
 		}
 	}
 }
