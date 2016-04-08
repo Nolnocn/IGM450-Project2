@@ -12,7 +12,11 @@ public class GameUIController : MonoBehaviour {
 	}
 
 	[SerializeField]
+	private GameObject lossPanel;
+	[SerializeField]
 	private Text scoreText;
+	[SerializeField]
+	private Text lossScoreText;
 
 	[SerializeField]
 	private PlayerBubbleScript playerBubble;
@@ -21,10 +25,17 @@ public class GameUIController : MonoBehaviour {
 	{
 		instance = this;
 		EventManager.AddEventListener ("PlayerGrow", UpdateScore);
+		EventManager.AddEventListener ("GameOver", TriggerDeathUI);
 	}
 
-	public void UpdateScore ()
+	public void UpdateScore()
 	{
 		scoreText.text = playerBubble.GetAreaAsScore ().ToString();
+	}
+
+	public void TriggerDeathUI() 
+	{
+		lossPanel.SetActive (true);
+		lossScoreText.text = playerBubble.GetAreaAsScore ().ToString();
 	}
 }
