@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BubbleScript : MonoBehaviour
 {
-	private float area;
+	protected float area;
 
 	public float Area
 	{
@@ -12,8 +12,7 @@ public class BubbleScript : MonoBehaviour
 
 	void Start()
 	{
-		float radius = transform.localScale.x * 0.5f;
-		area = Mathf.PI * radius * radius;
+		CalculateArea();
 	}
 
 	void OnCollisionEnter2D( Collision2D collision )
@@ -28,14 +27,24 @@ public class BubbleScript : MonoBehaviour
 		}
 	}
 
-	private void EatBubble( BubbleScript bubble )
+	public virtual void KillBubble()
+	{
+		Destroy( gameObject );
+	}
+
+	protected void CalculateArea()
+	{
+		float radius = transform.localScale.x * 0.5f;
+		area = Mathf.PI * radius * radius;
+	}
+
+	protected virtual void EatBubble( BubbleScript bubble )
 	{
 		float newArea = area + bubble.Area;
 		float newRadius = Mathf.Sqrt( newArea / Mathf.PI );
 
 		transform.localScale = new Vector3( newRadius * 2.0f, newRadius * 2.0f, 1.0f );
 		area = newArea;
-
-		Destroy( bubble.gameObject );
+		bubble.KillBubble();
 	}
 }
