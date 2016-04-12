@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Rippler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class Rippler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
 	public RippleScript ripplePrefab;
 
@@ -17,12 +17,19 @@ public class Rippler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 	//private float currRippleInterval = 0.0f;
 
+	private Vector2 touchPos;
+
 	private float minToMaxRatio;
 	private float minRippleForce;
 	private float maxRippleForce;
 	private float pressTime;
 
 	private bool pressed;
+
+	public Vector2 TouchPosition
+	{
+		get{ return touchPos; }
+	}
 
 	void Start()
 	{
@@ -57,6 +64,8 @@ public class Rippler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	public void OnPointerDown( PointerEventData e )
 	{
 		pressed = true;
+		touchPos = e.pointerPressRaycast.worldPosition;
+		EventManager.TriggerEvent( "RippleStart" );
 		/*if( currRippleInterval <= 0.0f )
 		{
 			Vector2 pos = e.pointerPressRaycast.worldPosition;
@@ -68,23 +77,24 @@ public class Rippler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
 	public void OnPointerUp( PointerEventData e )
 	{
-		Vector2 pos = e.pointerPressRaycast.worldPosition;
-		SpawnRipple( pos );
+		SpawnRipple( touchPos );
 
 		pressed = false;
 		pressTime = 0.0f;
+
+		EventManager.TriggerEvent( "RippleRelease" );
 	}
 
-	/*public void OnDrag( PointerEventData e )
+	public void OnDrag( PointerEventData e )
 	{
-		Vector2 worldPos = Camera.main.ScreenToWorldPoint( e.position );
+		touchPos = Camera.main.ScreenToWorldPoint( e.position );
+	}
 
-		if( Vector2.Distance( worldPos, lastMousePos ) >= minRippleDistance )
-		{
-			SpawnRipple( worldPos );
-			lastMousePos = worldPos;
-		}
-	}*/
+	public float GetRippleForcePercent()
+	{
+		float perc = Mathf.Min( pressTime, maxPressTime ) / maxPressTime;
+		return perc;
+	}
 
 	private void Resize()
 	{
@@ -101,8 +111,7 @@ public class Rippler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	private void SpawnRipple( Vector2 pos )
 	{
 		RippleScript rs = Instantiate( ripplePrefab, pos, Quaternion.identity ) as RippleScript;
-		float perc = Mathf.Min( pressTime, maxPressTime ) / maxPressTime;
-		float force = Mathf.Lerp( minRippleForce, maxRippleForce, perc );
+		float force = Mathf.Lerp( minRippleForce, maxRippleForce, GetRippleForcePercent() );
 		rs.SetForce( force );
 	}
 }
