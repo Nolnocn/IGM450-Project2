@@ -198,6 +198,7 @@ GameObject:
   - 222: {fileID: 22294772}
   - 114: {fileID: 11436612}
   - 95: {fileID: 9531818}
+  - 114: {fileID: 11434112}
   m_Layer: 5
   m_Name: Logo
   m_TagString: Untagged
@@ -415,7 +416,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 127380}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 24fb0da4f3f37a845b1fe8b8d8581086, type: 2}
   m_CullingMode: 0
@@ -746,6 +747,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11434112
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 145560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 2, y: -6.5}
+  m_UseGraphicAlpha: 1
 --- !u!114 &11434802
 MonoBehaviour:
   m_ObjectHideFlags: 1
