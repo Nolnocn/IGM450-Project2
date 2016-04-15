@@ -53,7 +53,7 @@ public class GameUIController : MonoBehaviour {
 	{
 		Time.timeScale = 0.0f;
 		pausePanel.transform.parent.gameObject.SetActive (true);
-		EventManager.TriggerEvent ("UpdateHighScore");
+		pausePanel.UpdateScore (playerBubble.GetScore ());
 	}
 
 	private void ActivateRippleUI() 

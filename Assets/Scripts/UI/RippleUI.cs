@@ -20,7 +20,6 @@ public class RippleUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (rippleScript.GetRippleForcePercent ());
 		rippleUI.value = rippleScript.GetRippleForcePercent ();
 		targetTransform.position = new Vector3(rippleScript.TouchPosition.x,rippleScript.TouchPosition.y + 2.0f, 0f);
 		followScript.targetTransform = targetTransform;
