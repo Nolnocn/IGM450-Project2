@@ -33,4 +33,9 @@ public class HighScoreUI : MonoBehaviour {
 			highScoreText.text = score.ToString ();
 		}
 	}
+
+	void Update()
+	{
+		OnEnable ();
+	}
 }
