@@ -16,6 +16,8 @@ public class GameUIController : MonoBehaviour {
 	private PausePanelControl pausePanel;
 	[SerializeField]
 	private Text scoreText;
+	[SerializeField]
+	private GameObject rippleUI;
 
 
 	[SerializeField]
@@ -26,6 +28,8 @@ public class GameUIController : MonoBehaviour {
 		instance = this;
 		EventManager.AddEventListener ("PlayerGrow", UpdateScore);
 		EventManager.AddEventListener ("GameOver", TriggerDeathUI);
+		EventManager.AddEventListener ("RippleStart", ActivateRippleUI);
+		EventManager.AddEventListener ("RippleRelease", DeactivateRippleUI);
 	}
 
 	public void UpdateScore()
@@ -35,7 +39,7 @@ public class GameUIController : MonoBehaviour {
 
 	public void TriggerDeathUI() 
 	{
-		Debug.Log ("Death");
+		DeactivateRippleUI ();
 		lossPanel.transform.parent.gameObject.SetActive (true);
 		lossPanel.UpdateScore (playerBubble.GetScore ());
 	}
@@ -44,5 +48,15 @@ public class GameUIController : MonoBehaviour {
 	{
 		Time.timeScale = 0.0f;
 		pausePanel.transform.parent.gameObject.SetActive (true);	
+	}
+
+	private void ActivateRippleUI() 
+	{
+		rippleUI.gameObject.SetActive (true);
+	}
+
+	private void DeactivateRippleUI() 
+	{
+		rippleUI.gameObject.SetActive (false);
 	}
 }
