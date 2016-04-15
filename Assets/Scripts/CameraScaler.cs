@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CameraScaler : MonoBehaviour
 {
+	public const float SCALE_AMT = 4.0f;
 	public PlayerBubbleScript playerBubble;
 
 	private Camera mainCamera;
@@ -15,9 +16,9 @@ public class CameraScaler : MonoBehaviour
 	
 	private void OnPlayerGrow()
 	{
-		if( playerBubble.GetDiameter() > mainCamera.orthographicSize * 0.5f )
+		if( playerBubble.GetDiameter() > mainCamera.orthographicSize * 2.0f / SCALE_AMT )
 		{
-			mainCamera.orthographicSize *= 2.0f;
+			mainCamera.orthographicSize *= SCALE_AMT;
 			EventManager.TriggerEvent( "CameraResize" );
 		}
 	}
