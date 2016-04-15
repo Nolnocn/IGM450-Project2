@@ -443,18 +443,18 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11403670, guid: fc7032e507130614d9119f3dfb34658a, type: 2}
-      propertyPath: worldCamera
-      value: 
-      objectReference: {fileID: 1212447988}
-    - target: {fileID: 11447766, guid: fc7032e507130614d9119f3dfb34658a, type: 2}
-      propertyPath: rippleScript
-      value: 
-      objectReference: {fileID: 489433563}
     - target: {fileID: 11409218, guid: fc7032e507130614d9119f3dfb34658a, type: 2}
       propertyPath: playerBubble
       value: 
       objectReference: {fileID: 1851029244}
+    - target: {fileID: 11447766, guid: fc7032e507130614d9119f3dfb34658a, type: 2}
+      propertyPath: rippleScript
+      value: 
+      objectReference: {fileID: 489433563}
+    - target: {fileID: 11403670, guid: fc7032e507130614d9119f3dfb34658a, type: 2}
+      propertyPath: worldCamera
+      value: 
+      objectReference: {fileID: 1212447988}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc7032e507130614d9119f3dfb34658a, type: 2}
   m_IsPrefabParent: 0

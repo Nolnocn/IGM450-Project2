@@ -14,6 +14,7 @@ public class LossPanelController : MonoBehaviour {
 		get { return panelAnimator; }
 	}
 
+
 	public void UpdateScore(int score)
 	{
 		lossScoreText.text = score.ToString ();

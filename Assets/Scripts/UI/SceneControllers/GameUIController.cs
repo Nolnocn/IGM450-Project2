@@ -22,6 +22,10 @@ public class GameUIController : MonoBehaviour {
 
 	[SerializeField]
 	private PlayerBubbleScript playerBubble;
+	public PlayerBubbleScript PlayerBubble 
+	{
+		get { return playerBubble; }
+	}
 
 	void Awake()
 	{
@@ -42,12 +46,14 @@ public class GameUIController : MonoBehaviour {
 		DeactivateRippleUI ();
 		lossPanel.transform.parent.gameObject.SetActive (true);
 		lossPanel.UpdateScore (playerBubble.GetScore ());
+		EventManager.TriggerEvent ("UpdateHighScore");
 	}
 
 	public void Pause() 
 	{
 		Time.timeScale = 0.0f;
-		pausePanel.transform.parent.gameObject.SetActive (true);	
+		pausePanel.transform.parent.gameObject.SetActive (true);
+		EventManager.TriggerEvent ("UpdateHighScore");
 	}
 
 	private void ActivateRippleUI() 
