@@ -250,6 +250,58 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 22467420, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 123
+      objectReference: {fileID: 0}
+    - target: {fileID: 22467420, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -349
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424244, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -849
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424244, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -130
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424244, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424244, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424244, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.71526605
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424244, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.6988523
+      objectReference: {fileID: 0}
+    - target: {fileID: 22428790, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -1522
+      objectReference: {fileID: 0}
+    - target: {fileID: 22428790, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 480
+      objectReference: {fileID: 0}
+    - target: {fileID: 22431060, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 432
+      objectReference: {fileID: 0}
+    - target: {fileID: 22472126, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 415
+      objectReference: {fileID: 0}
+    - target: {fileID: 22472126, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -1559
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2a9f69d36d4ea9449edf52a6738cd34, type: 2}
   m_IsPrefabParent: 0
