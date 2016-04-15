@@ -48,8 +48,8 @@ public class BubbleSpawner : MonoBehaviour
 
 	private void OnCameraResize()
 	{
-		float size = Camera.main.orthographicSize * 0.5f;
-		minBubbleSize = size * 0.25f;
+		float size = Camera.main.orthographicSize / CameraScaler.SCALE_AMT;
+		minBubbleSize = size * 0.125f;
 		maxBubbleSize = size * 0.75f;
 		maxBubbles *= 2;
 	}
