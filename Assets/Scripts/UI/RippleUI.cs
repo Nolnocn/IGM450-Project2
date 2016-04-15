@@ -22,7 +22,7 @@ public class RippleUI : MonoBehaviour {
 	void Update () {
 		Debug.Log (rippleScript.GetRippleForcePercent ());
 		rippleUI.value = rippleScript.GetRippleForcePercent ();
-		targetTransform.position = new Vector3(rippleScript.TouchPosition.x,rippleScript.TouchPosition.y, 0f);
+		targetTransform.position = new Vector3(rippleScript.TouchPosition.x,rippleScript.TouchPosition.y + 2.0f, 0f);
 		followScript.targetTransform = targetTransform;
 	}
 }
