@@ -16,6 +16,9 @@ Tap the screen to create ripples and push bubbles around. Make your bubble the b
 
 ### Joppola Coposeph - UI Designer/Programmer/Whatever he calls himself
 * It's Joe. All the mystery and intrigue flew out the window almost two years ago
+* But really, made all the menu screens and UI
+* Implemented High score
+* Made several UI animations
 
 ### Conner Hasbro - Bro
 * Enjoys reading bedtime stories to orphans that don't even know that he is the reason they are orphans
