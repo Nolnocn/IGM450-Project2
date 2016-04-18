@@ -26,4 +26,4 @@ Tap the screen to create ripples and push bubbles around. Make your bubble the b
 * Created works of bubbly art
 
 
-[cover]: https://github.com/nolnocn/IGM450-Project2/raw/master/Assets/Sprites/hemorrhoid.png "Game Cover Image"
+[cover]: https://github.com/nolnocn/IGM450-Project2/raw/master/Assets/bbss.png "Game Cover Image"
